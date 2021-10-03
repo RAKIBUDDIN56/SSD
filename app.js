@@ -126,7 +126,7 @@ app.get('/logout',(req,res) => {
     authed = false
     res.redirect('/')
 })
-
+// Callback function
 app.get("/google/callback", function (req, res) {
   const code = req.query.code;
   if (code) {
