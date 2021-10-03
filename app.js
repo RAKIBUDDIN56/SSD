@@ -146,6 +146,24 @@ app.get("/google/callback", function (req, res) {
   }
 });
 
+app.get('/github/callback',(req, res) =>{
+
+  const requestToken = req.query.code
+
+  axios({
+    method: 'post',
+    url: `https://github.com/login/oauth/access_token?client_id=${clientID}&client_secret=${clientSecret}&code=${requestToken}`,
+    headers:{
+      accept:'application/json'
+    }
+  }).then((response) =>{
+    access_token = response.data.access_token
+    console.log("Access token:");
+    console.log(access_token)
+    res.redirect('/gitSuccess')
+  })
+})
+
 
 
 
