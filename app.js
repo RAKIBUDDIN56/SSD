@@ -167,6 +167,19 @@ app.get('/github/callback',(req, res) =>{
 })
 
 
+app.get('/gitSuccess', function(req, res) {
+
+  axios({
+    method: 'get',
+    url: `https://api.github.com/user`,
+    headers: {
+      Authorization: 'token ' + access_token
+    }
+  }).then((response) => {
+    res.render('gitSuccess',{ userData: response.data });
+  })
+});
+
 
 
 
