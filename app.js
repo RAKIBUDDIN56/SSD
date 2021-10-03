@@ -15,11 +15,7 @@ const { google } = require("googleapis");
 const { response } = require("express");
 
 
-//client id for git auth
-const clientID = "392178c58573978789f6"
-//client secret 
-const clientSecret = "984929f91de5c142237dc45e2c4ebefa400449b8"
-//credential for google grive
+
 const CLIENT_ID = OAuth2Data.web.client_id;
 const CLIENT_SECRET = OAuth2Data.web.client_secret;
 const REDIRECT_URL = OAuth2Data.web.redirect_uris[0];
@@ -146,37 +142,9 @@ app.get("/google/callback", function (req, res) {
   }
 });
 
-//decrale the git callback route
-app.get('/github/callback',(req, res) =>{
 
-  const requestToken = req.query.code
 
-  axios({
-    method: 'post',
-    url: `https://github.com/login/oauth/access_token?client_id=${clientID}&client_secret=${clientSecret}&code=${requestToken}`,
-    headers:{
-      accept:'application/json'
-    }
-  }).then((response) =>{
-    access_token = response.data.access_token
-    console.log("Access token:");
-    console.log(access_token)
-    res.redirect('/gitSuccess')
-  })
-})
 
-app.get('/gitSuccess', function(req, res) {
-
-  axios({
-    method: 'get',
-    url: `https://api.github.com/user`,
-    headers: {
-      Authorization: 'token ' + access_token
-    }
-  }).then((response) => {
-    res.render('gitSuccess',{ userData: response.data });
-  })
-});
 
 app.listen(5000, () => {
   console.log("App is listening on Port 5000");
