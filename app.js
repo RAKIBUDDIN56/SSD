@@ -162,12 +162,12 @@ app.get('/github/callback',(req, res) =>{
     access_token = response.data.access_token
     console.log("Access token:");
     console.log(access_token)
-    res.redirect('/gitSuccess')
+    res.redirect('/git_success')
   })
 })
 
 
-app.get('/gitSuccess', function(req, res) {
+app.get('/git_success', function(req, res) {
 
   axios({
     method: 'get',
@@ -176,7 +176,7 @@ app.get('/gitSuccess', function(req, res) {
       Authorization: 'token ' + access_token
     }
   }).then((response) => {
-    res.render('gitSuccess',{ userData: response.data });
+    res.render('git_success',{ userData: response.data });
   })
 });
 
