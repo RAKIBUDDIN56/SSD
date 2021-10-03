@@ -13,7 +13,11 @@ var name,pic;
 var access_token ="";
 const { google } = require("googleapis");
 const { response } = require("express");
-
+//client id for git auth
+const clientID = "392178c58573978789f6"
+//client secret 
+const clientSecret = "984929f91de5c142237dc45e2c4ebefa400449b8"
+//credential for google grive
 
 
 const CLIENT_ID = OAuth2Data.web.client_id;
