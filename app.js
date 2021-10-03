@@ -84,6 +84,8 @@ app.get("/", (req, res) => {
   }
 });
 
+// Uploading method 
+
 app.post("/upload", (req, res) => {
   upload(req, res, function (err) {
     if (err) {
