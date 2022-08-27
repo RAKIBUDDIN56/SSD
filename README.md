@@ -10,4 +10,6 @@ This application shows how to useoAuth 2.0 in web application
 ## Steps to Run the Server
 1. Install the required modules using  `` npm install `` command on the project directory
 2. Type  `` npm start `` command from the project directory
+3. ![19094269-portrait-of-an-handsome-young-doctor](https://user-images.githubusercontent.com/52502582/187034751-e97642c7-666d-4d3b-a958-855eb5af434c.jpg)
+
 
